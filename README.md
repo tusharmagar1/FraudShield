@@ -141,22 +141,99 @@ The FraudShield system follows these steps:
 6. Result Visualization
 
 ---
-
 # 📸 Screenshots
+---
 
-## Home Page
-Add screenshot here:
+## 🛡️ URL Threat Scanner
 
-```markdown
-![Home Page](assets/home.png)
-```
+The URL Threat Scanner analyzes single or bulk URLs to detect phishing attempts, malicious domains, suspicious keywords, and unsafe web patterns using AI-powered threat intelligence.
 
-## Prediction Result
-```markdown
-![Prediction](assets/prediction.png)
-```
+### Features:
+- Single URL scanning
+- Bulk URL analysis
+- QR code scanning
+- Threat level detection
+- Feature-based security analysis
+- Real-time phishing detection
+
+![URL Scanner](assets/scan-dashboard.png)
 
 ---
+
+## 📊 Analytics Dashboard
+
+The Analytics Dashboard provides visual insights into detected threats, scan activity, and risk trends through interactive charts and cybersecurity metrics.
+
+### Features:
+- Threat severity breakdown
+- Risk trend visualization
+- Flagged domain monitoring
+- Scan statistics
+- Security analytics charts
+
+![Analytics Dashboard](assets/analytics-dashboard.png)
+
+---
+
+## 🌍 Live Threat Map
+
+The Threat Map visualizes global cyber threats and attack origins in real time, helping users understand worldwide phishing and malware activity.
+
+### Features:
+- Live cyber attack visualization
+- Global threat tracking
+- Threat severity indicators
+- Attack source monitoring
+- Real-time phishing activity
+
+![Threat Map](assets/threat-map.png)
+
+---
+
+## 🕒 Scan History
+
+The History section stores previously scanned URLs and displays detailed threat analysis results for review and monitoring purposes.
+
+### Features:
+- Previous scan records
+- Threat indicator logs
+- Safe/Unsafe classification
+- Risk percentage tracking
+- Timestamped scan history
+
+![Scan History](assets/history-page.png)
+
+---
+
+## 🤖 AI Security Analyst
+
+The AI Security Analyst is an intelligent chatbot assistant that helps users understand cybersecurity threats, phishing techniques, and online safety practices.
+
+### Features:
+- AI-powered cybersecurity assistant
+- Threat awareness guidance
+- Phishing education
+- Security recommendations
+- Interactive chat interface
+
+![AI Analyst](assets/ai-analyst.png)
+
+---
+
+## 🎮 Spot The Phish Game
+
+Spot The Phish is an interactive cybersecurity awareness game designed to train users to identify phishing URLs and suspicious websites under time pressure.
+
+### Features:
+- Cybersecurity training game
+- URL phishing detection practice
+- Difficulty levels
+- Score tracking
+- Real-time threat awareness training
+
+![Spot The Phish](assets/spot-the-phish.png)
+
+____
 
 # 🔐 Security Notes
 
@@ -215,10 +292,9 @@ This project is licensed under the MIT License.
 
 # 👨‍💻 Author
 
-## Your Name
-- LinkedIn: https://linkedin.com/in/yourprofile
-- GitHub: https://github.com/yourusername
-
+## Tushar magar
+- LinkedIn: www.linkedin.com/in/tushar-magar-7b80a2255
+- GitHub: https://github.com/tusharmagar1
 ---
 
 # ⭐ Support
@@ -231,4 +307,4 @@ If you found this project useful, please consider giving it a ⭐ on GitHub.
 
 For suggestions or collaboration:
 
-📧 your-email@example.com
+📧 tusharmagar321@gmail.com
