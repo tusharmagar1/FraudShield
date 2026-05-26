@@ -273,15 +273,43 @@ Use `.gitignore` properly.
 
 # 🤝 Contributing
 
-Contributions are welcome.
+Contributions are welcome!
 
-## Steps:
-1. Fork the repository
+## Steps to Contribute
+
+1. Fork the repository  
 2. Create a new branch
-3. Commit changes
-4. Push the branch
-5. Create a Pull Request
 
+```bash
+git checkout -b feature-name
+```
+
+3. Make your changes  
+4. Commit changes
+
+```bash
+git commit -m "Added new feature"
+```
+
+5. Push to GitHub
+
+```bash
+git push origin feature-name
+```
+
+6. Open a Pull Request
+
+---
+
+## 💡 Contribution Ideas
+
+- Improve UI/UX
+- Enhance ML model accuracy
+- Add cybersecurity features
+- Fix bugs
+- Optimize performance
+
+Thank you for contributing to FraudShield 🚀
 ---
 
 # 📜 License
