@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+
+  <meta charset="UTF-8"/>
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>
+    FraudShield — Threat Intelligence
+  </title>
+
+  <!-- FAVICON -->
+  <link rel="icon" type="image/png" href="/static/logo.png" />
+
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/static/style.css" />
+
+  <!-- CHART JS -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"
+    defer
+  ></script>
+
+</head>
+
+<body>
+
+<!-- ═════════ SIDEBAR ═════════ -->
+
+<nav class="sidebar" id="sidebar">
+
+  <!-- LOGO -->
+  <div class="sidebar-logo">
+
+    <img
+      src="/static/logo.png"
+      alt="FraudShield"
+      class="sidebar-logo-img"
+      onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='flex';"
+    />
+
+    <!-- Fallback if image missing -->
+    <div id="logoFallback" class="sidebar-logo-fallback" style="display:none;">
+      <span class="logo-fallback-icon">⊕</span>
+      <span class="logo-fallback-text">FraudShield</span>
+    </div>
+
+  </div>
+
+  <!-- NAVIGATION -->
+  <ul class="nav-links">
+
+    <li class="nav-item active" onclick="navigate('dashboard', this)">
+      <div class="nav-icon">⬡</div>
+      <span>Dashboard</span>
+    </li>
+
+    <li class="nav-item" onclick="navigate('scan', this)">
+      <div class="nav-icon">⊕</div>
+      <span>Scan</span>
+    </li>
+
+    <li class="nav-item" onclick="navigate('analytics', this)">
+      <div class="nav-icon">◈</div>
+      <span>Analytics</span>
+    </li>
+
+    <li class="nav-item" onclick="navigate('threatmap', this)">
+      <div class="nav-icon">◉</div>
+      <span>Threat Map</span>
+    </li>
+
+    <li class="nav-item" onclick="navigate('history', this)">
+      <div class="nav-icon">⊞</div>
+      <span>History</span>
+    </li>
+
+    <li class="nav-item" onclick="navigate('chat', this)">
+      <div class="nav-icon">◎</div>
+      <span>AI Analyst</span>
+    </li>
+
+    <li class="nav-item" onclick="navigate('game', this)" title="Spot the Phish">
+      <div class="nav-icon">🎮</div>
+      <span>Spot the Phish</span>
+    </li>
+
+  </ul>
+
+  <!-- BOTTOM -->
+  <div class="sidebar-bottom">
+
+    <button class="theme-toggle" onclick="toggleTheme()">
+      <span id="themeIcon">☀</span>
+      <span id="themeLabel">Light Mode</span>
+    </button>
+
+    <div class="system-status">
+      <div class="pulse-dot"></div>
+      <span>System Online</span>
+    </div>
+
+  </div>
+
+</nav>
+
+<!-- ═════════ MAIN WRAPPER ═════════ -->
+
+<div class="main-wrapper">
+
+  <!-- ═════════ TOPBAR ═════════ -->
+
+  <header class="topbar">
+
+    <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+
+    <div class="topbar-brand">
+      <img
+        src="/static/logo.png"
+        alt="FraudShield"
+        class="topbar-logo-img"
+      />
+      <div class="topbar-title" id="pageTitle">Dashboard</div>
+    </div>
+
+    <div class="topbar-right">
+      <span class="scan-counter">
+        Scans: <strong id="topScanned">0</strong>
+      </span>
+    </div>
+
+  </header>
+
+  <!-- ═════════ DASHBOARD ═════════ -->
+
+  <section class="page-section active" id="section-dashboard">
+
+    <div class="stats-grid">
+
+      <div class="stat-card">
+        <div class="stat-icon safe">◎</div>
+        <div class="stat-info">
+          <span class="stat-label">Total Scans</span>
+          <h2 class="stat-value" id="totalScanned">0</h2>
+        </div>
+        <div class="stat-badge">All Time</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon danger">⚠</div>
+        <div class="stat-info">
+          <span class="stat-label">Threats Found</span>
+          <h2 class="stat-value danger-val" id="totalThreats">0</h2>
+        </div>
+        <div class="stat-badge danger-badge">Detected</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">◈</div>
+        <div class="stat-info">
+          <span class="stat-label">Avg Confidence</span>
+          <h2 class="stat-value" id="avgConfidence">—</h2>
+        </div>
+        <div class="stat-badge">Accuracy</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon safe">⊕</div>
+        <div class="stat-info">
+          <span class="stat-label">System Status</span>
+          <h2 class="stat-value safe-val">Protected</h2>
+        </div>
+        <div class="stat-badge safe-badge">Active</div>
+      </div>
+
+    </div>
+
+    <!-- MINI CHARTS -->
+    <div class="mini-charts">
+
+      <div class="neu-card mini-chart-card">
+        <h3>Risk Trend</h3>
+        <canvas id="trendChart" height="120"></canvas>
+      </div>
+
+      <div class="neu-card mini-chart-card">
+        <h3>Severity Breakdown</h3>
+        <canvas id="pieChart" height="120"></canvas>
+      </div>
+
+      <div class="neu-card mini-chart-card">
+        <h3>Top Flagged Domains</h3>
+        <div id="topDomainsList" class="domains-mini">
+          <div class="empty-state">No scans yet</div>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ═════════ SCAN SECTION ═════════ -->
+
+  <section class="page-section" id="section-scan">
+
+    <div class="scan-layout">
+
+      <!-- LEFT -->
+      <div class="neu-card scan-input-panel">
+
+        <h3 class="panel-heading">Scan Target</h3>
+
+        <div class="scan-tabs">
+          <button class="stab active" onclick="switchScanMode('single', this)">Single URL</button>
+          <button class="stab" onclick="switchScanMode('bulk', this)">Bulk Scan</button>
+          <button class="stab" onclick="switchScanMode('qr', this)">QR Code</button>
+        </div>
+
+        <!-- SINGLE -->
+        <div class="scan-mode" id="mode-single">
+          <div class="url-input-group">
+            <input type="text" id="urlInput" placeholder="https://example.com" />
+            <button class="paste-btn" onclick="pasteFromClipboard()">Paste</button>
+          </div>
+          <button class="scan-btn" onclick="analyzeUrl()">
+            <span class="scan-btn-inner">
+              <span class="scan-icon">⊕</span>
+              <span>Analyze Threat</span>
+            </span>
+          </button>
+        </div>
+
+        <!-- BULK -->
+        <div class="scan-mode" id="mode-bulk" style="display:none;">
+          <textarea
+            id="bulkInput"
+            class="bulk-textarea"
+            placeholder="Paste one URL per line&#10;https://example.com&#10;https://another.com"
+            rows="5"
+          ></textarea>
+          <button class="scan-btn" onclick="analyzeBulk()">
+            <span class="scan-btn-inner">
+              <span class="scan-icon">⊕</span>
+              <span>Scan All URLs</span>
+            </span>
+          </button>
+          <div id="bulkResults" class="bulk-results"></div>
+        </div>
+
+        <!-- QR CODE -->
+        <div class="scan-mode" id="mode-qr" style="display:none;">
+          <div id="qrDropZone" class="qr-drop-zone">
+            <div class="qr-drop-icon">⬡</div>
+            <p class="qr-drop-text">Drop QR image here or click to upload</p>
+            <p class="qr-drop-hint">Supports PNG, JPG, WEBP</p>
+            <input type="file" id="qrFileInput" accept="image/*" style="display:none;" />
+          </div>
+          <img id="qrPreview" class="qr-preview" style="display:none;" alt="QR Preview" />
+        </div>
+
+      </div>
+
+      <!-- RIGHT -->
+      <div class="scan-result-panel">
+
+        <div class="neu-card hex-card">
+          <h3 class="panel-heading">Threat Level</h3>
+          <div class="hex-center">
+            <div class="hex-pct" id="gaugePct">0%</div>
+            <div class="hex-risk" id="gaugeRisk">IDLE</div>
+          </div>
+        </div>
+
+        <div class="neu-card">
+          <h3 class="panel-heading">Threat Indicators</h3>
+          <div id="flagsList" class="flags-list">
+            <div class="empty-state">No scan performed yet</div>
+          </div>
+        </div>
+
+        <div class="neu-card">
+          <h3 class="panel-heading">Feature Analysis</h3>
+          <div id="featureGrid" class="feat-grid"></div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ═════════ ANALYTICS ═════════ -->
+
+  <section class="page-section" id="section-analytics">
+
+    <div class="analytics-grid">
+
+      <div class="neu-card analytics-card big">
+        <h3 class="panel-heading">Risk Trend Over Time</h3>
+        <canvas id="trendChartFull" height="220"></canvas>
+      </div>
+
+      <div class="neu-card analytics-card">
+        <h3 class="panel-heading">Threat Severity Breakdown</h3>
+        <canvas id="pieChartFull" height="260"></canvas>
+      </div>
+
+      <div class="neu-card analytics-card">
+        <h3 class="panel-heading">Top Flagged Domains</h3>
+        <div id="topDomainsListFull" class="domains-list-full">
+          <div class="empty-state">Scan URLs to see data</div>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ═════════ THREAT MAP ═════════ -->
+
+  <section class="page-section" id="section-threatmap">
+
+    <div class="neu-card">
+
+      <div class="history-header">
+        <h3 class="panel-heading">Live Threat Map</h3>
+        <div class="threat-legend">
+          <div class="legend-item"><span class="legend-dot high"></span>High</div>
+          <div class="legend-item"><span class="legend-dot medium"></span>Medium</div>
+          <div class="legend-item"><span class="legend-dot low"></span>Low</div>
+        </div>
+      </div>
+
+      <!-- GLOBE -->
+      <div class="globe-wrapper">
+        <div id="globeViz"></div>
+        <div id="threatFeed" class="threat-feed"></div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ═════════ HISTORY ═════════ -->
+
+  <section class="page-section" id="section-history">
+
+    <div class="neu-card history-card">
+
+      <div class="history-header">
+        <h3 class="panel-heading">Scan History</h3>
+        <button class="clear-btn" onclick="clearHistory()">Clear All</button>
+      </div>
+
+      <div id="historyAccordion" class="accordion">
+        <div class="history-empty">No scans recorded yet</div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ═════════ AI CHAT ═════════ -->
+
+  <section class="page-section" id="section-chat">
+
+    <div class="chat-layout">
+
+      <div class="neu-card chat-card">
+
+        <div class="chat-header">
+          <div class="chat-ai-badge">
+            <div class="ai-dot"></div>
+            <span>AI Security Analyst</span>
+          </div>
+          <button class="clear-btn" onclick="clearChat()">Clear</button>
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+          <div class="chat-msg ai-msg">
+            <div class="msg-bubble">Hello! I'm your AI Security Analyst.</div>
+          </div>
+        </div>
+
+        <div class="chat-input-row">
+          <input type="text" id="chatInput" placeholder="Ask about cybersecurity..." />
+          <button class="chat-send-btn" onclick="sendChat()">→</button>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       GAME SECTION — Spot the Phish
+       FIX: moved INSIDE .main-wrapper so sidebar offset,
+       topbar, and page-section navigation all work correctly.
+  ════════════════════════════════════════════════════ -->
+
+  <section class="page-section" id="section-game">
+    <div class="game-wrapper">
+
+      <!-- Header -->
+      <div class="game-header">
+
+<button class="game-back-btn" onclick="backToGameMenu()">
+  ← Back
+</button>
+
+        <div class="game-title-block">
+          <span class="game-emoji">🎣</span>
+          <div>
+            <h2 class="game-title">Spot the Phish</h2>
+            <p class="game-subtitle">Is the URL safe or a threat? Beat the clock.</p>
+          </div>
+        </div>
+        <div class="game-hiscores">
+          <span class="game-hs-label">Best</span>
+          <span class="game-hs-val" id="gameHighScore">0</span>
+        </div>
+      </div>
+
+      <!-- START SCREEN -->
+      <div id="gameStart" class="game-screen">
+        <div class="game-start-card">
+          <div class="game-start-icon">🛡️</div>
+          <h3>Train Your Threat Radar</h3>
+          <p>You'll be shown URLs one at a time. Judge each one before the timer runs out. Earn bonus points for streaks!</p>
+          <div class="game-difficulty-row">
+            <button class="diff-btn active" onclick="setDifficulty('easy', this)">Easy<span>8s</span></button>
+            <button class="diff-btn" onclick="setDifficulty('medium', this)">Medium<span>5s</span></button>
+            <button class="diff-btn" onclick="setDifficulty('hard', this)">Hard<span>3s</span></button>
+          </div>
+          <button class="game-start-btn" onclick="startGame()">Start Game</button>
+        </div>
+      </div>
+
+      <!-- PLAYING SCREEN -->
+      <div id="gamePlaying" class="game-screen" style="display:none;">
+
+        <div class="game-hud">
+          <div class="hud-item">
+            <span class="hud-label">Score</span>
+            <span class="hud-val" id="gameScore">0</span>
+          </div>
+          <div class="hud-item hud-center">
+            <div class="game-timer-ring">
+              <svg viewBox="0 0 60 60">
+                <circle class="timer-bg"   cx="30" cy="30" r="26"/>
+                <circle class="timer-fill" cx="30" cy="30" r="26" id="timerArc"/>
+              </svg>
+              <span id="timerNum" class="timer-num">5</span>
+            </div>
+          </div>
+          <div class="hud-item hud-right">
+            <span class="hud-label">Streak 🔥</span>
+            <span class="hud-val" id="gameStreak">0</span>
+          </div>
+        </div>
+
+        <div class="game-progress-bar">
+          <div class="game-progress-fill" id="gameProgress"></div>
+        </div>
+        <div class="game-progress-label">
+          <span id="gameQNum">1</span> / <span id="gameQTotal">10</span>
+        </div>
+
+        <div class="game-url-card" id="gameUrlCard">
+          <div class="game-url-badge" id="gameUrlBadge">🔍 ASSESS</div>
+          <div class="game-url-text"  id="gameUrlText">https://example.com</div>
+          <div class="game-url-hint"  id="gameUrlHint"></div>
+        </div>
+
+        <div class="game-answer-btns" id="gameAnswerBtns">
+          <button class="game-ans-btn ans-safe"   onclick="submitAnswer('safe')">
+            <span class="ans-icon">✅</span><span>Safe</span>
+          </button>
+          <button class="game-ans-btn ans-threat" onclick="submitAnswer('threat')">
+            <span class="ans-icon">⚠️</span><span>Threat</span>
+          </button>
+        </div>
+
+        <div class="game-feedback" id="gameFeedback" style="display:none;">
+          <div class="feedback-verdict"     id="feedbackVerdict"></div>
+          <div class="feedback-explanation" id="feedbackExplanation"></div>
+          <div class="feedback-points"      id="feedbackPoints"></div>
+        </div>
+
+      </div>
+
+      <!-- GAME OVER SCREEN -->
+      <div id="gameOver" class="game-screen" style="display:none;">
+        <div class="game-over-card">
+          <div class="go-icon"  id="goIcon">🏆</div>
+          <h3 id="goTitle">Round Complete!</h3>
+          <div class="go-score-row">
+            <div class="go-stat">
+              <span class="go-stat-num"   id="goScore">0</span>
+              <span class="go-stat-label">Score</span>
+            </div>
+            <div class="go-stat">
+              <span class="go-stat-num"   id="goCorrect">0</span>
+              <span class="go-stat-label">Correct</span>
+            </div>
+            <div class="go-stat">
+              <span class="go-stat-num"   id="goBestStreak">0</span>
+              <span class="go-stat-label">Best Streak</span>
+            </div>
+          </div>
+          <div class="go-rank" id="goRank"></div>
+          <div class="go-btns">
+            <button class="game-start-btn" onclick="startGame()">Play Again</button>
+            <button class="game-menu-btn"  onclick="showGameMenu()">Menu</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── end of all page sections ── -->
+
+</div><!-- /.main-wrapper -->
+
+
+<!-- ═════════ OVERLAY ═════════ -->
+<div class="scan-overlay" id="scanOverlay">
+  <div class="scan-overlay-spinner">
+    <div class="spinner-ring"></div>
+    <span class="spinner-label">Scanning…</span>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- ═════════ SCRIPTS ═════════ -->
+<script src="https://unpkg.com/three"></script>
+<script src="https://unpkg.com/globe.gl"></script>
+<script src="/static/script.js"></script>
+
+</body>
+</html>
