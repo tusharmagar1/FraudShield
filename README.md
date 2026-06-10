@@ -233,21 +233,6 @@ Spot The Phish is an interactive cybersecurity awareness game designed to train 
 
 ![Spot The Phish](assets/spot-the-phish.png)
 
-____
-
-# 🔐 Security Notes
-
-Before uploading to GitHub:
-
-❌ Do NOT upload:
-- `.env`
-- API keys
-- Secret credentials
-- Database files
-- Large unnecessary model files
-
-Use `.gitignore` properly.
-
 ---
 
 # 📈 Future Improvements
