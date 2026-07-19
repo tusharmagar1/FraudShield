@@ -1,154 +1,38 @@
+<div align="center">
+
 # 🛡️ FraudShield
 
-FraudShield is an AI-powered fraud detection web application designed to identify suspicious financial transactions using Machine Learning techniques. The system analyzes transaction data and predicts whether a transaction is fraudulent or legitimate through an interactive web interface.
+An AI-powered phishing & URL threat detection dashboard — scan single or bulk URLs,
+visualize threat activity in real time, and learn to spot phishing attempts yourself,
+all in one Flask + Machine Learning web app.
+
+[![python](https://img.shields.io/badge/python-Flask-blue?logo=python&logoColor=white)](#)
+[![ml](https://img.shields.io/badge/ML-Random%20Forest-orange)](#)
+[![status](https://img.shields.io/badge/status-portfolio--project-blue)](#)
+[![license](https://img.shields.io/badge/license-MIT-green)](#-license)
+
+[Features](#-features) • [Screenshots](#-screenshots) • [Setup](#%EF%B8%8F-installation--setup) • [Tech Stack](#%EF%B8%8F-tech-stack) • [Use Cases](#-sample-use-cases)
+
+</div>
 
 ---
 
-# 🚀 Features
+## 📌 Overview
 
-## 🔍 Fraud Detection
-- Predicts fraudulent transactions using a trained ML model
-- Real-time transaction analysis
-- Fast prediction response
-
-## 🌐 Web Application
-- User-friendly Flask-based web interface
-- Responsive frontend design
-- Easy navigation and interaction
-
-## 📊 Data Handling
-- Secure transaction input processing
-- Database integration using SQLite
-- Efficient backend architecture
-
-## 🤖 Machine Learning
-- Pre-trained fraud detection model
-- Data preprocessing pipeline
-- Model integration with Flask backend
-
-## 📝 Feedback System
-- Users can provide feedback
-- Helps improve future model performance
+FraudShield analyzes URLs and web patterns to flag phishing attempts and malicious
+domains, using a trained Random Forest classifier behind a Flask backend. It's built
+as a full security-dashboard experience rather than a single prediction endpoint —
+scanning, analytics, threat visualization, scan history, an AI assistant for
+security questions, and even a phishing-awareness training game are all part of the
+same app.
 
 ---
 
-# 🛠️ Tech Stack
+## 🚀 Features
 
-## Backend
-- Python
-- Flask
-
-## Machine Learning
-- Scikit-learn
-- Pandas
-- NumPy
-
-## Frontend
-- HTML
-- CSS
-- JavaScript
-
-## Database
-- SQLite
-
----
-
-# 📂 Project Structure
-
-```bash
-FraudShield/
-│
-├── app.py                  # Main Flask application
-├── requirements.txt        # Python dependencies
-├── model.pkl               # Trained ML model
-├── templates/              # HTML templates
-├── static/                 # CSS, JS, images
-├── instance/               # SQLite database
-├── assets/                 # Screenshots for README
-├── README.md               # Project documentation
-└── .gitignore              # Ignored files
-```
-
----
-
-# ⚙️ Installation & Setup
-
-## 1️⃣ Clone the Repository
-
-```bash
-git clone https://github.com/yourusername/FraudShield.git
-```
-
-## 2️⃣ Navigate to Project Folder
-
-```bash
-cd FraudShield
-```
-
-## 3️⃣ Create Virtual Environment (Recommended)
-
-### Windows
-```bash
-python -m venv venv
-venv\\Scripts\\activate
-```
-
-### Mac/Linux
-```bash
-python3 -m venv venv
-source venv/bin/activate
-```
-
----
-
-## 4️⃣ Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
----
-
-## 5️⃣ Run the Application
-
-```bash
-python app.py
-```
-
----
-
-# 🌍 Access the Application
-
-After running the server, open:
-
-```bash
-http://127.0.0.1:5000
-```
-
-in your browser.
-
----
-
-# 🧠 Machine Learning Workflow
-
-The FraudShield system follows these steps:
-
-1. Data Collection
-2. Data Preprocessing
-3. Feature Engineering
-4. Model Training
-5. Fraud Prediction
-6. Result Visualization
-
----
-# 📸 Screenshots
----
-
-## 🛡️ URL Threat Scanner
-
-The URL Threat Scanner analyzes single or bulk URLs to detect phishing attempts, malicious domains, suspicious keywords, and unsafe web patterns using AI-powered threat intelligence.
-
-### Features:
+### 🔍 URL Threat Scanner
+Analyzes single or bulk URLs to detect phishing attempts, malicious domains,
+suspicious keywords, and unsafe web patterns using AI-powered threat intelligence.
 - Single URL scanning
 - Bulk URL analysis
 - QR code scanning
@@ -156,168 +40,195 @@ The URL Threat Scanner analyzes single or bulk URLs to detect phishing attempts,
 - Feature-based security analysis
 - Real-time phishing detection
 
-![URL Scanner](assets/scan-dashboard.png)
-
----
-
-## 📊 Analytics Dashboard
-
-The Analytics Dashboard provides visual insights into detected threats, scan activity, and risk trends through interactive charts and cybersecurity metrics.
-
-### Features:
+### 📊 Analytics Dashboard
+Visual insights into detected threats, scan activity, and risk trends through
+interactive Chart.js visualizations.
 - Threat severity breakdown
 - Risk trend visualization
 - Flagged domain monitoring
 - Scan statistics
-- Security analytics charts
 
-![Analytics Dashboard](assets/analytics-dashboard.png)
-
----
-
-## 🌍 Live Threat Map
-
-The Threat Map visualizes global cyber threats and attack origins in real time, helping users understand worldwide phishing and malware activity.
-
-### Features:
-- Live cyber attack visualization
+### 🌍 Live Threat Map
+Visualizes global cyber threats and attack origins in real time.
+- Live cyber-attack visualization
 - Global threat tracking
 - Threat severity indicators
 - Attack source monitoring
-- Real-time phishing activity
 
-![Threat Map](assets/threat-map.png)
-
----
-
-## 🕒 Scan History
-
-The History section stores previously scanned URLs and displays detailed threat analysis results for review and monitoring purposes.
-
-### Features:
+### 🕒 Scan History
+Stores previously scanned URLs and their detailed threat analysis results.
 - Previous scan records
-- Threat indicator logs
 - Safe/Unsafe classification
 - Risk percentage tracking
 - Timestamped scan history
 
-![Scan History](assets/history-page.png)
+### 🤖 AI Security Analyst
+An intelligent chatbot assistant that helps users understand cybersecurity threats,
+phishing techniques, and online safety practices.
+
+### 🎮 Spot The Phish Game
+An interactive training game that challenges users to identify phishing URLs and
+suspicious websites under time pressure, with difficulty levels and score tracking.
+
+### 📝 Feedback System
+Users can submit feedback on predictions, helping guide future model improvements.
 
 ---
 
-## 🤖 AI Security Analyst
+## 📸 Screenshots
 
-The AI Security Analyst is an intelligent chatbot assistant that helps users understand cybersecurity threats, phishing techniques, and online safety practices.
+| URL Threat Scanner | Analytics Dashboard |
+|:---:|:---:|
+| ![URL Scanner](assets/scan-dashboard.png) | ![Analytics Dashboard](assets/analytics-dashboard.png) |
 
-### Features:
-- AI-powered cybersecurity assistant
-- Threat awareness guidance
-- Phishing education
-- Security recommendations
-- Interactive chat interface
+| Live Threat Map | Scan History |
+|:---:|:---:|
+| ![Threat Map](assets/threat-map.png) | ![Scan History](assets/history-page.png) |
 
-![AI Analyst](assets/ai-analyst.png)
-
----
-
-## 🎮 Spot The Phish Game
-
-Spot The Phish is an interactive cybersecurity awareness game designed to train users to identify phishing URLs and suspicious websites under time pressure.
-
-### Features:
-- Cybersecurity training game
-- URL phishing detection practice
-- Difficulty levels
-- Score tracking
-- Real-time threat awareness training
-
-![Spot The Phish](assets/spot-the-phish.png)
+| AI Security Analyst | Spot The Phish Game |
+|:---:|:---:|
+| ![AI Analyst](assets/ai-analyst.png) | ![Spot The Phish](assets/spot-the-phish.png) |
 
 ---
 
-# 📈 Future Improvements
+## 🛠 Tech Stack
 
-- Real-time fraud monitoring
+| Layer | Tools |
+|---|---|
+| **Backend** | Python, Flask |
+| **Machine Learning** | Scikit-learn (Random Forest), Pandas, NumPy |
+| **Frontend** | HTML, CSS, JavaScript, Chart.js |
+| **Database** | SQLite |
+
+---
+
+## 🧠 Machine Learning Workflow
+
+1. Data collection (URL / domain features)
+2. Data preprocessing
+3. Feature engineering
+4. Model training (Random Forest)
+5. Threat prediction
+6. Result visualization on the dashboard
+
+---
+
+## 📂 Project Structure
+
+```bash
+FraudShield/
+│
+├── app.py                  # Main Flask application
+├── requirements.txt        # Python dependencies
+├── model.pkl               # Trained ML model
+├── templates/               # HTML templates
+├── static/                   # CSS, JS, images
+├── instance/                 # SQLite database
+├── assets/                   # Screenshots for README
+├── README.md                 # Project documentation
+└── .gitignore                # Ignored files
+```
+
+---
+
+## ⚙️ Installation & Setup
+
+**1. Clone the repository**
+```bash
+git clone https://github.com/tusharmagar1/FraudShield.git
+cd FraudShield
+```
+
+**2. Create a virtual environment (recommended)**
+
+Windows:
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
+
+Mac/Linux:
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+**3. Install dependencies**
+```bash
+pip install -r requirements.txt
+```
+
+**4. Run the application**
+```bash
+python app.py
+```
+
+**5. Open it in your browser**
+```
+http://127.0.0.1:5000
+```
+
+---
+
+## 🧪 Sample Use Cases
+
+- Phishing link detection before clicking a suspicious URL
+- Security awareness training for teams (via Spot The Phish)
+- Monitoring flagged domains over time
+- Educating non-technical users on phishing red flags via the AI Security Analyst
+
+---
+
+## 📈 Future Improvements
+
+- Real-time fraud/threat monitoring with live alerts
 - Cloud deployment
 - User authentication system
-- Dashboard analytics
-- REST API integration
-- Deep Learning model integration
-- Email/SMS fraud alerts
+- REST API for third-party integration
+- Deep learning model integration
+- Email/SMS threat alerts
 
 ---
 
-# 🧪 Sample Use Cases
-
-- Banking fraud detection
-- Payment gateway monitoring
-- Credit card transaction verification
-- E-commerce fraud prevention
-
----
-
-# 🤝 Contributing
+## 🤝 Contributing
 
 Contributions are welcome!
 
-## Steps to Contribute
-
-1. Fork the repository  
+1. Fork the repository
 2. Create a new branch
-
-```bash
-git checkout -b feature-name
-```
-
-3. Make your changes  
-4. Commit changes
-
-```bash
-git commit -m "Added new feature"
-```
-
+   ```bash
+   git checkout -b feature-name
+   ```
+3. Make your changes
+4. Commit your changes
+   ```bash
+   git commit -m "Added new feature"
+   ```
 5. Push to GitHub
-
-```bash
-git push origin feature-name
-```
-
+   ```bash
+   git push origin feature-name
+   ```
 6. Open a Pull Request
 
----
-
-## 💡 Contribution Ideas
-
-- Improve UI/UX
-- Enhance ML model accuracy
-- Add cybersecurity features
-- Fix bugs
-- Optimize performance
-
-Thank you for contributing to FraudShield 🚀
----
-
-# 📜 License
-
-This project is licensed under the MIT License.
+**Contribution ideas:** improve UI/UX, enhance model accuracy, add new cybersecurity
+features, fix bugs, optimize performance.
 
 ---
 
-# 👨‍💻 Author
+## 📄 License
 
-## Tushar magar
-- LinkedIn: www.linkedin.com/in/tushar-magar-7b80a2255
-- GitHub: https://github.com/tusharmagar1
+This project is licensed under the [MIT License](LICENSE).
+
 ---
 
-# ⭐ Support
+## 👤 Author
+
+**Tushar Magar**
+
+- GitHub: [@tusharmagar1](https://github.com/tusharmagar1)
+- LinkedIn: [tushar-magar](https://www.linkedin.com/in/tushar-magar-7b80a2255)
+- Email: tusharmagar321@gmail.com
+
+## ⭐ Support
 
 If you found this project useful, please consider giving it a ⭐ on GitHub.
-
----
-
-# 📬 Contact
-
-For suggestions or collaboration:
-
-📧 tusharmagar321@gmail.com
