@@ -1,379 +1,209 @@
 <div align="center">
 
-# 🛡️ FraudShield
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:0D1117,100:1B2735&height=180&text=FraudShield&fontSize=50&fontColor=00FF9C&fontAlignY=55&desc=%3E%20phishing_detection_engine.exe%20--status%20ACTIVE&descAlignY=80&descSize=15&descColor=3B82F6" width="100%"/>
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=42&pause=1000&color=3B82F6&center=true&vCenter=true&width=900&lines=AI-Powered+Phishing+Detection;Real-Time+URL+Threat+Analysis;Cybersecurity+Dashboard)](https://git.io/typing-svg)
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=2200&pause=700&color=00FF9C&center=true&vCenter=true&width=750&lines=%3E+Scanning+URL...;%3E+Extracting+security+features...;%3E+Random+Forest+Classifier+loaded...;%3E+Verdict%3A+SAFE+%E2%9C%93+%2F+PHISHING+%E2%9C%97" />
 
-### AI-powered phishing detection platform built with Flask & Machine Learning
+<br/>
 
-*Scan single or bulk URLs, visualize cyber threats in real time, analyze suspicious websites, and improve phishing awareness through an interactive security dashboard.*
+![Python](https://img.shields.io/badge/-Python-000000?style=flat-square&logo=python)
+![Flask](https://img.shields.io/badge/-Flask-000000?style=flat-square&logo=flask)
+![scikit--learn](https://img.shields.io/badge/-scikit--learn-000000?style=flat-square&logo=scikit-learn)
+![Chart.js](https://img.shields.io/badge/-Chart.js-000000?style=flat-square&logo=chartdotjs)
+![SQLite](https://img.shields.io/badge/-SQLite-000000?style=flat-square&logo=sqlite)
 
-<br>
-
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
-![Scikit-Learn](https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
-![Chart.js](https://img.shields.io/badge/Chart.js-FF6384?style=for-the-badge&logo=chartdotjs&logoColor=white)
-![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
-
-<br>
-
-**[🚀 Features](#-features)** • **[📸 Screenshots](#-screenshots)** • **[🛠 Tech Stack](#-tech-stack)** • **[⚙️ Installation](#%EF%B8%8F-installation)** • **[📂 Project Structure](#-project-structure)** • **[🗺 Roadmap](#-future-roadmap)**
+<sub>🟢 SYSTEM STATUS: <b>OPERATIONAL</b> &nbsp;|&nbsp; 🛡 MODEL: <b>Random Forest</b> &nbsp;|&nbsp; 📡 THREAT FEED: <b>LIVE</b></sub>
 
 </div>
 
+<br/>
+
+```
+╔══════════════════════════════════════════════════════════════╗
+║  FraudShield — an AI security layer between you and the link  ║
+║  you were about to click.                                     ║
+╚══════════════════════════════════════════════════════════════╝
+```
+
+FraudShield inspects URLs the way a security analyst would — pulling structural, lexical, and domain-level signals, then feeding them through a trained classifier to hand back a verdict: **safe** or **phishing**. Everything around that verdict — the dashboard, the map, the game — exists to make that decision explainable and the habit of checking a link stick.
+
 ---
 
-# 📌 Overview
-
-**FraudShield** is an AI-powered cybersecurity platform that detects phishing websites using Machine Learning.
-
-The system analyzes URLs using a trained **Random Forest Classifier**, extracting multiple security-related features to classify links as **Safe** or **Phishing**.
-
-Beyond simple prediction, FraudShield provides a complete cybersecurity dashboard featuring analytics, live threat visualization, AI-powered assistance, QR code scanning, phishing awareness training, and historical scan tracking.
-
----
-
-# 🚀 Features
+## 🧩 Modules
 
 <table>
 <tr>
+<td width="50%" valign="top">
 
-<td width="50%">
+**🔍 `scan.url()`**
+Single & bulk URL scanning, QR code intake, full risk-score breakdown per link.
 
-### 🔍 URL Threat Scanner
+**📊 `dashboard.render()`**
+Chart.js-powered view of scan volume, threat categories, and risk trends over time.
 
-Detect malicious and phishing URLs instantly.
-
-- Single URL scanning
-- Bulk URL scanning
-- QR Code Scanner
-- Detailed threat breakdown
-- Risk score generation
+**🌍 `threatmap.live()`**
+Global visualization of where flagged threats are geographically concentrated.
 
 </td>
+<td width="50%" valign="top">
 
-<td width="50%">
+**🤖 `analyst.chat()`**
+An in-app AI assistant that explains *why* a URL was flagged, in plain English.
 
-### 📊 Analytics Dashboard
+**🕒 `history.log()`**
+Timestamped record of every scan — searchable, filterable, exportable.
 
-Interactive security analytics powered by Chart.js.
-
-- Threat statistics
-- Scan activity
-- Risk trends
-- Category distribution
-- Security insights
+**🎮 `spotthephish.play()`**
+A timed mini-game that trains the human in the loop to spot fakes on sight.
 
 </td>
-
 </tr>
-
-<tr>
-
-<td>
-
-### 🌍 Live Threat Map
-
-Visualize cyber threats across the globe.
-
-- Global attack visualization
-- Live threat indicators
-- Geographic attack distribution
-
-</td>
-
-<td>
-
-### 🤖 AI Security Analyst
-
-Built-in AI chatbot for cybersecurity assistance.
-
-- Explain phishing results
-- Security awareness
-- Safe browsing recommendations
-- Cybersecurity education
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-
-### 🕒 Scan History
-
-Track every scan with timestamps.
-
-- Previous scans
-- Threat history
-- Detailed reports
-- Search & filtering
-
-</td>
-
-<td>
-
-### 🎮 Spot The Phish
-
-Interactive phishing awareness game.
-
-- Detect fake URLs
-- Improve cybersecurity skills
-- Score tracking
-- Time challenge
-
-</td>
-
-</tr>
-
 </table>
 
 ---
 
-# 📸 Screenshots
+## 📸 Interface
 
-> Replace these placeholder images with actual screenshots.
+> Swap these placeholders for real captures once you've got them — this section sells the project harder than any badge does.
 
-| URL Scanner | Analytics Dashboard |
-|-------------|---------------------|
-| ![](assets/scan-dashboard.png) | ![](assets/analytics-dashboard.png) |
+| Scanner | Analytics |
+|---|---|
+| `assets/scan-dashboard.png` | `assets/analytics-dashboard.png` |
 
-| Live Threat Map | Scan History |
-|-----------------|--------------|
-| ![](assets/threat-map.png) | ![](assets/history-page.png) |
+| Threat Map | Scan History |
+|---|---|
+| `assets/threat-map.png` | `assets/history-page.png` |
 
-| AI Security Analyst | Spot The Phish |
-|---------------------|----------------|
-| ![](assets/ai-analyst.png) | ![](assets/spot-the-phish.png) |
-
----
-
-# 🛠 Tech Stack
-
-| Category | Technologies |
-|----------|--------------|
-| **Backend** | Flask, Python |
-| **Machine Learning** | Scikit-Learn, Pandas, NumPy |
-| **Frontend** | HTML5, CSS3, JavaScript |
-| **Charts** | Chart.js |
-| **Database** | SQLite |
-| **Model** | Random Forest Classifier |
+| AI Analyst | Spot The Phish |
+|---|---|
+| `assets/ai-analyst.png` | `assets/spot-the-phish.png` |
 
 ---
+
+## 🧠 Detection Pipeline
+
+```
+   URL Input
+      │
+      ▼
+┌─────────────────┐    length, hyphens, dots, HTTPS,
+│ Feature Extract  │ ─▶ IP-in-URL, suspicious chars,
+└─────────────────┘    domain age & registrar signals
+      │
+      ▼
+┌─────────────────┐
+│ Random Forest    │ ──▶  probability score (0–100)
+│ Classifier        │
+└─────────────────┘
+      │
+      ▼
+   ┌───────┬────────┐
+   │ SAFE ✅ │ PHISHING ❌ │
+   └───────┴────────┘
+      │
+      ▼
+  Logged → Dashboard → Threat Map
+```
 
 <details>
+<summary><b>Show the six-stage build pipeline</b></summary>
 
-<summary><b>🧠 Machine Learning Workflow</b></summary>
+<br/>
 
-### 1️⃣ Data Collection
-
-Extract URL-based phishing features.
-
-### 2️⃣ Data Preprocessing
-
-Clean and normalize the dataset.
-
-### 3️⃣ Feature Engineering
-
-Generate phishing indicators such as:
-
-- URL Length
-- HTTPS Status
-- Number of Dots
-- Number of Hyphens
-- Presence of IP Address
-- Suspicious Characters
-- Domain Information
-
-### 4️⃣ Model Training
-
-Train a **Random Forest Classifier** on labeled phishing data.
-
-### 5️⃣ Prediction
-
-Predict whether a URL is:
-
-- ✅ Safe
-- ❌ Phishing
-
-### 6️⃣ Dashboard Visualization
-
-Display prediction results with charts and analytics.
+| Stage | What Happens |
+|---|---|
+| 1️⃣ Data Collection | Gather labeled phishing / legitimate URL datasets |
+| 2️⃣ Preprocessing | Clean, deduplicate, normalize |
+| 3️⃣ Feature Engineering | Derive URL length, HTTPS flag, hyphen/dot counts, IP presence, domain info |
+| 4️⃣ Training | Fit a Random Forest Classifier on labeled data |
+| 5️⃣ Inference | Classify new URLs as Safe / Phishing |
+| 6️⃣ Visualization | Push results into the live dashboard |
 
 </details>
 
 ---
 
-# ⚙️ Installation
-
-## 1. Clone Repository
+## ⚙️ Deploy It Locally
 
 ```bash
+# 1. Clone
 git clone https://github.com/tusharmagar1/FraudShield.git
 cd FraudShield
-```
 
----
-
-## 2. Create Virtual Environment
-
-### Windows
-
-```bash
+# 2. Virtual environment
 python -m venv venv
-venv\Scripts\activate
-```
+source venv/bin/activate      # Windows: venv\Scripts\activate
 
-### macOS / Linux
-
-```bash
-python3 -m venv venv
-source venv/bin/activate
-```
-
----
-
-## 3. Install Dependencies
-
-```bash
+# 3. Install
 pip install -r requirements.txt
-```
 
----
-
-## 4. Run Application
-
-```bash
+# 4. Launch
 python app.py
 ```
 
----
-
-## 5. Open Browser
-
-```
-http://127.0.0.1:5000
-```
+<div align="center">
+<img src="https://img.shields.io/badge/-http%3A%2F%2F127.0.0.1%3A5000-00FF9C?style=flat-square&logoColor=black"/>
+</div>
 
 ---
 
-# 📂 Project Structure
+## 📂 File Tree
 
 ```text
 FraudShield
 │
-├── assets/
-│   ├── scan-dashboard.png
-│   ├── analytics-dashboard.png
-│   ├── threat-map.png
-│   ├── history-page.png
-│   ├── ai-analyst.png
-│   └── spot-the-phish.png
-│
-├── instance/
-│   └── database.db
-│
-├── static/
-│   ├── css/
-│   ├── js/
-│   └── images/
-│
-├── templates/
-│   ├── index.html
-│   ├── dashboard.html
-│   └── history.html
-│
-├── model.pkl
-├── app.py
+├── assets/                 # screenshots
+├── instance/database.db    # scan history storage
+├── static/{css,js,images}
+├── templates/              # index, dashboard, history
+├── model.pkl                # trained classifier
+├── app.py                   # Flask entrypoint
 ├── requirements.txt
 └── README.md
 ```
 
 ---
 
-# 📈 Future Roadmap
+## 📡 Threat Radar (Roadmap)
 
-- [ ] Live threat monitoring
-- [ ] Email phishing detection
-- [ ] Browser extension
-- [ ] User authentication
-- [ ] Cloud deployment
-- [ ] REST API
-- [ ] Mobile application
-- [ ] Deep Learning threat detection
-- [ ] Real-time notifications
-- [ ] Threat intelligence integration
+```
+[■■■■■■■■■□] Live threat monitoring
+[■■■■■□□□□□] Email phishing detection
+[■■■□□□□□□□] Browser extension
+[■■□□□□□□□□] User authentication
+[■□□□□□□□□□] Cloud deployment + REST API
+[□□□□□□□□□□] Mobile app · Deep Learning model · Real-time alerts
+```
 
 ---
 
-# 🤝 Contributing
-
-Contributions are welcome!
-
-1. Fork the repository
-
-2. Create your feature branch
+## 🤝 Contributing
 
 ```bash
 git checkout -b feature/AmazingFeature
-```
-
-3. Commit your changes
-
-```bash
 git commit -m "Add AmazingFeature"
-```
-
-4. Push to GitHub
-
-```bash
 git push origin feature/AmazingFeature
 ```
-
-5. Open a Pull Request
-
----
-
-# 💡 Contribution Ideas
-
-- UI/UX Improvements
-- Machine Learning Enhancements
-- Dataset Expansion
-- Security Features
-- Performance Optimization
-- Bug Fixes
-- Documentation Improvements
+Then open a PR. Good first contributions: UI/UX polish, dataset expansion, model tuning, docs, bug hunts.
 
 ---
 
-# 👨‍💻 Author
-
-## Tushar Magar
-
-AI & Machine Learning Enthusiast
-
-GitHub: **https://github.com/tusharmagar1**
-
----
-
-# ⭐ Support
-
-If you found this project helpful, consider giving it a **⭐ Star** on GitHub.
-
-It helps others discover the project and motivates future development.
-
----
-
-# 📜 License
-
-This project is licensed under the **MIT License**.
-
----
 <div align="center">
 
-Made with ❤️ using Python, Flask and Machine Learning
+## 👨‍💻 Author
+
+**Tushar Magar** — AI & Machine Learning Enthusiast
+
+<a href="https://github.com/tusharmagar1">
+<img src="https://img.shields.io/badge/GitHub-tusharmagar1-00FF9C?style=for-the-badge&logo=github&logoColor=black"/>
+</a>
+
+<br/><br/>
+
+⭐ **Star this repo if FraudShield helped you dodge a bad link.**
+
+<sub>Licensed under MIT · Made with Python, Flask & a healthy distrust of URLs</sub>
+
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:1B2735,100:0D1117&height=100&section=footer" width="100%"/>
 
 </div>
